@@ -1,730 +1,936 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guzman Elite Home Services - Premium Cleaning Services</title>
+    <title>Guzman Elite Home Services | House and Office Cleaning</title>
+    <meta name="description" content="Home and commercial cleaning by vetted, insured staff. Free quotes, clear pricing, and a free re-clean if anything isn't right.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        * {
+        :root {
+            --navy: #16245e;
+            --navy-deep: #0e1a47;
+            --gold: #e3b341;
+            --gold-ink: #7a5a0c;
+            --sheet: #f6f8fc;
+            --soap: #e3eaf6;
+            --ink: #1c2540;
+            --ink-soft: #4a5370;
+            --rule: #cfd8ea;
+
+            --display: 'Bricolage Grotesque', 'Trebuchet MS', sans-serif;
+            --body: 'Atkinson Hyperlegible', 'Segoe UI', Verdana, sans-serif;
+
+            --step--1: 0.875rem;
+            --step-0: 1.0625rem;
+            --step-1: 1.3rem;
+            --step-2: 1.75rem;
+            --step-3: clamp(2rem, 4vw, 2.75rem);
+            --step-4: clamp(2.6rem, 6.4vw, 4.75rem);
+
+            --gutter: clamp(16px, 4vw, 40px);
+        }
+
+        *, *::before, *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-```
-    :root {
-        --navy-blue: #1a237e;
-        --royal-blue: #283593;
-        --gold: #ffd700;
-        --light-gold: #fff176;
-        --white: #ffffff;
-        --light-gray: #f8f9fa;
-        --text-dark: #2c3e50;
-        --shadow: 0 10px 30px rgba(0,0,0,0.1);
-    }
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 84px;
+        }
 
-    body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        line-height: 1.6;
-        color: var(--text-dark);
-        overflow-x: hidden;
-    }
+        body {
+            font-family: var(--body);
+            font-size: var(--step-0);
+            line-height: 1.6;
+            color: var(--ink);
+            background: var(--sheet);
+            overflow-x: hidden;
+        }
 
-    .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
-    }
+        h1, h2, h3 {
+            font-family: var(--display);
+            line-height: 1.1;
+            letter-spacing: -0.015em;
+        }
 
-    /* Header */
-    header {
-        background: linear-gradient(135deg, var(--navy-blue) 0%, var(--royal-blue) 100%);
-        color: white;
-        padding: 1rem 0;
-        position: fixed;
-        width: 100%;
-        top: 0;
-        z-index: 1000;
-        box-shadow: var(--shadow);
-    }
+        a { color: inherit; }
 
-    nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
+        :focus-visible {
+            outline: 3px solid var(--gold);
+            outline-offset: 3px;
+            border-radius: 4px;
+        }
 
-    .logo {
-        display: flex;
-        align-items: center;
-        font-size: 1.5rem;
-        font-weight: bold;
-    }
+        .wrap {
+            max-width: 1160px;
+            margin: 0 auto;
+            padding: 0 var(--gutter);
+        }
 
-    .logo img {
-        width: 50px;
-        height: 50px;
-        margin-right: 10px;
-        border-radius: 50%;
-    }
+        .skip-link {
+            position: absolute;
+            left: 16px;
+            top: -60px;
+            background: var(--gold);
+            color: var(--navy-deep);
+            padding: 10px 16px;
+            font-weight: 700;
+            z-index: 2000;
+        }
 
-    .nav-links {
-        display: flex;
-        list-style: none;
-        gap: 2rem;
-    }
+        .skip-link:focus { top: 12px; }
 
-    .nav-links a {
-        color: white;
-        text-decoration: none;
-        transition: color 0.3s;
-    }
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-family: var(--body);
+            font-weight: 700;
+            font-size: var(--step-0);
+            text-decoration: none;
+            padding: 0.85rem 1.4rem;
+            border-radius: 6px;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: background-color 0.2s, color 0.2s, transform 0.1s;
+        }
 
-    .nav-links a:hover {
-        color: var(--gold);
-    }
+        .btn:active { transform: scale(0.97); }
 
-    .cta-button {
-        background: linear-gradient(45deg, var(--gold), var(--light-gold));
-        color: var(--navy-blue);
-        padding: 12px 24px;
-        border: none;
-        border-radius: 25px;
-        font-weight: bold;
-        text-decoration: none;
-        transition: transform 0.3s, box-shadow 0.3s;
-        cursor: pointer;
-    }
+        .btn-gold {
+            background: var(--gold);
+            color: var(--navy-deep);
+        }
 
-    .cta-button:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
-    }
+        .btn-gold:hover { background: #edc25f; }
 
-    /* Hero Section */
-    .hero {
-        background: linear-gradient(135deg, var(--navy-blue) 0%, var(--royal-blue) 100%);
-        color: white;
-        padding: 120px 0 80px;
-        text-align: center;
-        position: relative;
-        overflow: hidden;
-    }
+        .btn-outline {
+            border-color: rgba(255, 255, 255, 0.55);
+            color: #fff;
+        }
 
-    .hero::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="sparkle" patternUnits="userSpaceOnUse" width="100" height="100"><circle cx="20" cy="20" r="1" fill="rgba(255,215,0,0.3)"/><circle cx="80" cy="40" r="0.5" fill="rgba(255,215,0,0.2)"/><circle cx="40" cy="80" r="1.5" fill="rgba(255,215,0,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23sparkle)"/></svg>') repeat;
-        opacity: 0.1;
-    }
+        .btn-outline:hover {
+            border-color: #fff;
+            background: rgba(255, 255, 255, 0.08);
+        }
 
-    .hero-content {
-        position: relative;
-        z-index: 2;
-    }
+        .btn-navy {
+            background: var(--navy);
+            color: #fff;
+        }
 
-    .hero h1 {
-        font-size: 3.5rem;
-        margin-bottom: 1rem;
-        background: linear-gradient(45deg, var(--gold), var(--light-gold));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-    }
+        .btn-navy:hover { background: var(--navy-deep); }
 
-    .hero-subtitle {
-        font-size: 1.3rem;
-        margin-bottom: 2rem;
-        opacity: 0.9;
-    }
+        /* Header */
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: #fff;
+            border-bottom: 1px solid var(--rule);
+        }
 
-    .hero-cta {
-        display: flex;
-        gap: 1rem;
-        justify-content: center;
-        flex-wrap: wrap;
-    }
+        .site-header .wrap {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            height: 72px;
+        }
 
-    /* Trust Indicators */
-    .trust-bar {
-        background: var(--light-gray);
-        padding: 20px 0;
-        text-align: center;
-    }
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-family: var(--display);
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: var(--navy);
+            text-decoration: none;
+            margin-right: auto;
+            white-space: nowrap;
+        }
 
-    .trust-items {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 3rem;
-        flex-wrap: wrap;
-    }
+        .brand i { color: var(--gold); }
 
-    .trust-item {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        color: var(--navy-blue);
-        font-weight: 600;
-    }
-
-    .trust-item i {
-        color: var(--gold);
-        font-size: 1.2rem;
-    }
-
-    /* Services Section */
-    .services {
-        padding: 80px 0;
-        background: white;
-    }
-
-    .section-title {
-        text-align: center;
-        font-size: 2.5rem;
-        margin-bottom: 3rem;
-        color: var(--navy-blue);
-    }
-
-    .services-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-        margin-top: 3rem;
-    }
-
-    .service-card {
-        background: white;
-        padding: 2rem;
-        border-radius: 15px;
-        box-shadow: var(--shadow);
-        text-align: center;
-        transition: transform 0.3s, box-shadow 0.3s;
-        border: 2px solid transparent;
-    }
-
-    .service-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-        border-color: var(--gold);
-    }
-
-    .service-icon {
-        width: 80px;
-        height: 80px;
-        background: linear-gradient(45deg, var(--navy-blue), var(--royal-blue));
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto 1rem;
-        color: var(--gold);
-        font-size: 2rem;
-    }
-
-    .service-card h3 {
-        color: var(--navy-blue);
-        margin-bottom: 1rem;
-        font-size: 1.3rem;
-    }
-
-    /* Why Choose Us */
-    .why-choose {
-        background: linear-gradient(135deg, var(--light-gray) 0%, white 100%);
-        padding: 80px 0;
-    }
-
-    .features-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 2rem;
-        margin-top: 3rem;
-    }
-
-    .feature-item {
-        display: flex;
-        align-items: flex-start;
-        gap: 1rem;
-        padding: 1.5rem;
-        background: white;
-        border-radius: 10px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-    }
-
-    .feature-icon {
-        width: 50px;
-        height: 50px;
-        background: var(--gold);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--navy-blue);
-        font-size: 1.2rem;
-        flex-shrink: 0;
-    }
-
-    /* Testimonials */
-    .testimonials {
-        background: var(--navy-blue);
-        color: white;
-        padding: 80px 0;
-    }
-
-    .testimonial-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-        margin-top: 3rem;
-    }
-
-    .testimonial-card {
-        background: rgba(255,255,255,0.1);
-        padding: 2rem;
-        border-radius: 15px;
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255,215,0,0.2);
-    }
-
-    .stars {
-        color: var(--gold);
-        margin-bottom: 1rem;
-        font-size: 1.2rem;
-    }
-
-    .testimonial-text {
-        font-style: italic;
-        margin-bottom: 1rem;
-        line-height: 1.6;
-    }
-
-    .testimonial-author {
-        color: var(--gold);
-        font-weight: bold;
-    }
-
-    /* CTA Section */
-    .final-cta {
-        background: linear-gradient(45deg, var(--gold), var(--light-gold));
-        padding: 60px 0;
-        text-align: center;
-        color: var(--navy-blue);
-    }
-
-    .final-cta h2 {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
-    }
-
-    .final-cta p {
-        font-size: 1.2rem;
-        margin-bottom: 2rem;
-    }
-
-    .contact-options {
-        display: flex;
-        justify-content: center;
-        gap: 2rem;
-        flex-wrap: wrap;
-    }
-
-    .contact-btn {
-        background: var(--navy-blue);
-        color: white;
-        padding: 15px 30px;
-        border: none;
-        border-radius: 25px;
-        font-size: 1.1rem;
-        font-weight: bold;
-        text-decoration: none;
-        transition: transform 0.3s, box-shadow 0.3s;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-    }
-
-    .contact-btn:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba(26, 35, 126, 0.4);
-    }
-
-    /* Footer */
-    footer {
-        background: var(--navy-blue);
-        color: white;
-        padding: 40px 0 20px;
-        text-align: center;
-    }
-
-    .footer-content {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 2rem;
-        margin-bottom: 2rem;
-    }
-
-    .footer-section h3 {
-        color: var(--gold);
-        margin-bottom: 1rem;
-    }
-
-    .footer-section a {
-        color: white;
-        text-decoration: none;
-        display: block;
-        margin: 0.5rem 0;
-        transition: color 0.3s;
-    }
-
-    .footer-section a:hover {
-        color: var(--gold);
-    }
-
-    /* Mobile Responsive */
-    @media (max-width: 768px) {
         .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.75rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--ink-soft);
+            font-weight: 700;
+        }
+
+        .nav-links a:hover { color: var(--navy); }
+
+        .header-phone {
+            font-weight: 700;
+            color: var(--navy);
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .header-phone i { color: var(--gold-ink); margin-right: 0.35rem; }
+
+        .menu-toggle {
             display: none;
+            background: none;
+            border: 2px solid var(--rule);
+            border-radius: 6px;
+            width: 44px;
+            height: 44px;
+            color: var(--navy);
+            font-size: 1.1rem;
+            cursor: pointer;
         }
-        
+
+        .mobile-menu {
+            display: none;
+            overflow: hidden;
+            background: #fff;
+            border-bottom: 1px solid var(--rule);
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+            padding: 0.5rem var(--gutter) 1.25rem;
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid var(--soap);
+            text-decoration: none;
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        .mobile-menu a.btn {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin-top: 1rem;
+            padding: 0.85rem 1.4rem;
+            border-bottom: 0;
+            color: var(--navy-deep);
+        }
+
+        /* Hero */
+        .hero {
+            background: var(--navy);
+            color: #fff;
+            padding: clamp(56px, 9vw, 112px) 0 clamp(48px, 7vw, 88px);
+            overflow: hidden;
+        }
+
+        .hero .wrap {
+            display: grid;
+            grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.9fr);
+            gap: clamp(2rem, 5vw, 4.5rem);
+            align-items: center;
+        }
+
+        .pane {
+            position: relative;
+        }
+
         .hero h1 {
-            font-size: 2.5rem;
+            font-size: var(--step-4);
+            font-weight: 800;
+            max-width: 13ch;
         }
-        
-        .hero-cta {
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        .trust-items {
-            gap: 1rem;
-        }
-        
-        .contact-options {
-            flex-direction: column;
-            align-items: center;
-        }
-    }
 
-    /* Animations */
-    @keyframes fadeInUp {
-        from {
+        .hero-lede {
+            font-size: var(--step-1);
+            line-height: 1.5;
+            color: #d6ddf1;
+            max-width: 34em;
+            margin-top: 1.4rem;
+        }
+
+        /* The squeegee wipe: a hazy film over the headline that gets wiped away on load */
+        .haze {
+            position: absolute;
+            inset: -12px -16px;
+            background: rgba(214, 224, 245, 0.32);
+            backdrop-filter: blur(7px);
+            -webkit-backdrop-filter: blur(7px);
+            pointer-events: none;
+        }
+
+        .blade {
+            position: absolute;
+            top: -24px;
+            bottom: -24px;
+            left: -16px;
+            width: 10px;
+            border-radius: 5px;
+            background: var(--gold);
+            box-shadow: 0 0 0 3px rgba(227, 179, 65, 0.25);
+            pointer-events: none;
             opacity: 0;
-            transform: translateY(30px);
         }
-        to {
-            opacity: 1;
-            transform: translateY(0);
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.9rem;
+            margin-top: 2.2rem;
         }
-    }
 
-    .fade-in {
-        animation: fadeInUp 0.8s ease-out;
-    }
+        .proof {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem 1.8rem;
+            list-style: none;
+            margin-top: 2.6rem;
+            color: #d6ddf1;
+            font-size: var(--step--1);
+        }
 
-    /* Scroll animations */
-    .animate-on-scroll {
-        opacity: 0;
-        transform: translateY(30px);
-        transition: all 0.8s ease-out;
-    }
+        .proof i { color: var(--gold); margin-right: 0.45rem; }
 
-    .animate-on-scroll.animated {
-        opacity: 1;
-        transform: translateY(0);
-    }
-</style>
-```
+        /* Job sheet */
+        .job-sheet {
+            background: #fff;
+            color: var(--ink);
+            border-radius: 10px;
+            padding: 1.6rem 1.6rem 1.4rem;
+            transform: rotate(1.5deg);
+            box-shadow: 0 24px 60px rgba(5, 10, 35, 0.45);
+        }
 
+        .job-sheet h2 {
+            font-size: var(--step-1);
+            color: var(--navy);
+        }
+
+        .job-sheet > p {
+            font-size: var(--step--1);
+            color: var(--ink-soft);
+            margin-top: 0.2rem;
+        }
+
+        .checklist {
+            list-style: none;
+            margin-top: 1.1rem;
+        }
+
+        .checklist li {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.7rem 0;
+            border-top: 1px dashed var(--rule);
+        }
+
+        .tick {
+            flex-shrink: 0;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            border: 2px solid var(--rule);
+            display: grid;
+            place-items: center;
+            font-size: 0.8rem;
+            color: var(--navy-deep);
+            background: var(--gold);
+            border-color: var(--gold);
+        }
+
+        .job-sheet .sign-off {
+            margin-top: 0.9rem;
+            padding-top: 0.9rem;
+            border-top: 2px solid var(--navy);
+            font-size: var(--step--1);
+            color: var(--ink-soft);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .job-sheet .sign-off strong { color: var(--navy); }
+
+        /* Services */
+        .services {
+            padding: clamp(64px, 9vw, 120px) 0;
+            background: #fff;
+        }
+
+        .services .wrap {
+            display: grid;
+            grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.4fr);
+            gap: clamp(2rem, 6vw, 5rem);
+            align-items: start;
+        }
+
+        .services-intro {
+            position: sticky;
+            top: 112px;
+        }
+
+        .section-heading {
+            font-size: var(--step-3);
+            font-weight: 800;
+            color: var(--navy);
+        }
+
+        .services-intro p {
+            margin-top: 1rem;
+            color: var(--ink-soft);
+            max-width: 26em;
+        }
+
+        .services-intro .btn { margin-top: 1.6rem; }
+
+        .service-list { list-style: none; }
+
+        .service {
+            display: grid;
+            grid-template-columns: 56px minmax(0, 1fr);
+            gap: 1.25rem;
+            padding: 1.6rem 0;
+            border-top: 1px solid var(--rule);
+        }
+
+        .service:last-child { border-bottom: 1px solid var(--rule); }
+
+        .service-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 12px;
+            background: var(--soap);
+            color: var(--navy);
+            display: grid;
+            place-items: center;
+            font-size: 1.35rem;
+        }
+
+        .service h3 {
+            font-size: var(--step-1);
+            color: var(--navy);
+        }
+
+        .service p {
+            color: var(--ink-soft);
+            margin-top: 0.35rem;
+            max-width: 38em;
+        }
+
+        /* Promise */
+        .promise {
+            background: var(--soap);
+            padding: clamp(64px, 9vw, 120px) 0;
+        }
+
+        .promise-statement {
+            font-size: var(--step-3);
+            font-weight: 700;
+            color: var(--navy);
+            max-width: 22ch;
+        }
+
+        .promise-statement + p {
+            margin-top: 1.1rem;
+            color: var(--ink-soft);
+            max-width: 36em;
+            font-size: var(--step-1);
+        }
+
+        .promise-points {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 2rem;
+            list-style: none;
+            margin-top: clamp(2.5rem, 5vw, 4rem);
+        }
+
+        .promise-points li {
+            border-left: 4px solid var(--gold);
+            padding-left: 1.1rem;
+        }
+
+        .promise-points h3 {
+            font-size: var(--step-1);
+            color: var(--navy);
+        }
+
+        .promise-points p {
+            color: var(--ink-soft);
+            margin-top: 0.4rem;
+        }
+
+        /* Reviews */
+        .reviews {
+            background: var(--navy);
+            color: #fff;
+            padding: clamp(64px, 9vw, 120px) 0;
+        }
+
+        .reviews .section-heading { color: #fff; }
+
+        .review-grid {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr 1fr;
+            gap: clamp(1.5rem, 3vw, 2.5rem);
+            margin-top: 2.5rem;
+        }
+
+        .review {
+            border-top: 2px solid var(--gold);
+            padding-top: 1.4rem;
+        }
+
+        .stars {
+            color: var(--gold);
+            font-size: 0.95rem;
+            letter-spacing: 0.15em;
+        }
+
+        .review blockquote {
+            margin-top: 0.9rem;
+            color: #e6ebf8;
+            line-height: 1.55;
+        }
+
+        .review:first-child blockquote {
+            font-family: var(--display);
+            font-weight: 500;
+            font-size: var(--step-2);
+            line-height: 1.25;
+            color: #fff;
+        }
+
+        .review cite {
+            display: block;
+            margin-top: 1rem;
+            font-style: normal;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        /* Contact */
+        .contact {
+            background: var(--gold);
+            color: var(--navy-deep);
+            padding: clamp(56px, 8vw, 104px) 0;
+        }
+
+        .contact .wrap {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            gap: 2rem 4rem;
+            align-items: end;
+        }
+
+        .contact h2 {
+            font-size: var(--step-3);
+            font-weight: 800;
+        }
+
+        .contact p {
+            margin-top: 0.8rem;
+            font-size: var(--step-1);
+            max-width: 30em;
+        }
+
+        .contact-phone {
+            display: inline-block;
+            margin-top: 1.4rem;
+            font-family: var(--display);
+            font-weight: 800;
+            font-size: var(--step-3);
+            text-decoration: none;
+            border-bottom: 3px solid var(--navy-deep);
+        }
+
+        .contact-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            min-width: 240px;
+        }
+
+        .contact-actions .btn { justify-content: center; }
+
+        /* Footer */
+        footer {
+            background: var(--navy-deep);
+            color: #c5cde6;
+            padding: 56px 0 28px;
+            font-size: var(--step--1);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr 1fr 1fr;
+            gap: 2rem;
+        }
+
+        footer .brand { color: #fff; margin-bottom: 0.6rem; }
+
+        footer h3 {
+            font-family: var(--body);
+            font-size: var(--step-0);
+            color: #fff;
+            margin-bottom: 0.7rem;
+        }
+
+        footer ul { list-style: none; }
+
+        footer li { margin: 0.4rem 0; }
+
+        footer a { text-decoration: none; }
+
+        footer a:hover { color: #fff; text-decoration: underline; }
+
+        footer i { width: 1.2em; color: var(--gold); }
+
+        .footer-base {
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+            margin-top: 2.5rem;
+            padding-top: 1.2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 960px) {
+            .hero .wrap,
+            .services .wrap,
+            .contact .wrap {
+                grid-template-columns: minmax(0, 1fr);
+            }
+
+            .job-sheet {
+                max-width: 420px;
+                transform: rotate(0.8deg);
+            }
+
+            .services-intro { position: static; }
+
+            .review-grid { grid-template-columns: minmax(0, 1fr); }
+
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+
+            .contact-actions { min-width: 0; max-width: 360px; }
+        }
+
+        @media (max-width: 820px) {
+            .nav-links,
+            .header-phone,
+            .site-header .wrap > .btn { display: none; }
+
+            .menu-toggle { display: grid; place-items: center; }
+
+            .mobile-menu.open { display: block; }
+
+            .promise-points { grid-template-columns: minmax(0, 1fr); }
+        }
+
+        @media (max-width: 480px) {
+            .hero-actions .btn { width: 100%; justify-content: center; }
+
+            .footer-grid { grid-template-columns: minmax(0, 1fr); }
+
+            .service { grid-template-columns: 44px minmax(0, 1fr); gap: 1rem; }
+
+            .service-icon { width: 44px; height: 44px; font-size: 1.1rem; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            .btn { transition: none; }
+            .btn:active { transform: none; }
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <nav class="container">
-            <div class="logo">
-                <i class="fas fa-crown" style="color: var(--gold); margin-right: 10px;"></i>
-                Guzman Elite Services
-            </div>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+        <div class="wrap">
+            <a class="brand" href="#home"><i class="fas fa-crown" aria-hidden="true"></i> Guzman Elite Services</a>
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
                 <li><a href="#services">Services</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#testimonials">Reviews</a></li>
+                <li><a href="#about">Our promise</a></li>
+                <li><a href="#reviews">Reviews</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <a href="#contact" class="cta-button">Get Free Quote</a>
+            <a class="header-phone" href="tel:+1234567890"><i class="fas fa-phone" aria-hidden="true"></i>(123) 456-7890</a>
+            <a class="btn btn-navy" href="#contact">Get a free quote</a>
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+                <i class="fas fa-bars" aria-hidden="true"></i>
+            </button>
+        </div>
+        <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile">
+            <ul>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">Our promise</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a class="btn btn-gold" href="tel:+1234567890"><i class="fas fa-phone" aria-hidden="true"></i> Call (123) 456-7890</a></li>
+            </ul>
         </nav>
     </header>
 
-```
-<section class="hero" id="home">
-    <div class="container">
-        <div class="hero-content fade-in">
-            <h1>Elite Cleaning Services</h1>
-            <p class="hero-subtitle">Transform your space with our premium cleaning solutions. Trusted by families and businesses for spotless results every time.</p>
-            <div class="hero-cta">
-                <a href="#contact" class="cta-button" style="font-size: 1.1rem; padding: 15px 30px;">
-                    <i class="fas fa-phone"></i> Call Now for Free Quote
-                </a>
-                <a href="#services" class="cta-button" style="background: transparent; border: 2px solid var(--gold); color: var(--gold);">
-                    <i class="fas fa-list"></i> View Services
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
+    <main id="main">
+        <section class="hero" id="home">
+            <div class="wrap">
+                <div>
+                    <div class="pane">
+                        <h1>Come home to a spotless house.</h1>
+                        <p class="hero-lede">Guzman Elite cleans homes and businesses with vetted, insured staff. Kitchens, bathrooms, carpets, windows: done right, or we come back and redo it free.</p>
+                        <div class="haze" hidden></div>
+                        <div class="blade" hidden></div>
+                    </div>
+                    <div class="hero-actions">
+                        <a class="btn btn-gold" href="tel:+1234567890"><i class="fas fa-phone" aria-hidden="true"></i> Call for a free quote</a>
+                        <a class="btn btn-outline" href="#services">See our services</a>
+                    </div>
+                    <ul class="proof">
+                        <li><i class="fas fa-shield-alt" aria-hidden="true"></i>Fully insured</li>
+                        <li><i class="fas fa-users" aria-hidden="true"></i>500+ happy clients</li>
+                        <li><i class="fas fa-star" aria-hidden="true"></i>5-star rated</li>
+                        <li><i class="fas fa-clock" aria-hidden="true"></i>Available 24/7</li>
+                    </ul>
+                </div>
 
-<section class="trust-bar">
-    <div class="container">
-        <div class="trust-items">
-            <div class="trust-item">
-                <i class="fas fa-shield-alt"></i>
-                <span>Fully Insured</span>
+                <aside class="job-sheet" aria-label="What a standard home clean covers">
+                    <h2>Your standard home clean</h2>
+                    <p>Every visit covers this list, room by room.</p>
+                    <ul class="checklist">
+                        <li><span class="tick"><i class="fas fa-check" aria-hidden="true"></i></span>Kitchen counters, sink and appliances wiped</li>
+                        <li><span class="tick"><i class="fas fa-check" aria-hidden="true"></i></span>Bathrooms scrubbed and disinfected</li>
+                        <li><span class="tick"><i class="fas fa-check" aria-hidden="true"></i></span>Floors vacuumed and mopped</li>
+                        <li><span class="tick"><i class="fas fa-check" aria-hidden="true"></i></span>Dusting on every reachable surface</li>
+                        <li><span class="tick"><i class="fas fa-check" aria-hidden="true"></i></span>Trash emptied, beds made</li>
+                    </ul>
+                    <div class="sign-off"><span>Checked before we leave</span><strong>Guzman Elite</strong></div>
+                </aside>
             </div>
-            <div class="trust-item">
-                <i class="fas fa-users"></i>
-                <span>500+ Happy Clients</span>
-            </div>
-            <div class="trust-item">
-                <i class="fas fa-star"></i>
-                <span>5-Star Rated</span>
-            </div>
-            <div class="trust-item">
-                <i class="fas fa-clock"></i>
-                <span>24/7 Available</span>
-            </div>
-        </div>
-    </div>
-</section>
+        </section>
 
-<section class="services" id="services">
-    <div class="container">
-        <h2 class="section-title animate-on-scroll">Our Premium Services</h2>
-        <div class="services-grid">
-            <div class="service-card animate-on-scroll">
-                <div class="service-icon">
-                    <i class="fas fa-home"></i>
+        <section class="services" id="services">
+            <div class="wrap">
+                <div class="services-intro">
+                    <h2 class="section-heading">What we clean</h2>
+                    <p>One team for your home, your office, and everything in between. Book a single visit or set up a regular schedule.</p>
+                    <a class="btn btn-navy" href="#contact">Get a free quote</a>
                 </div>
-                <h3>Residential Cleaning</h3>
-                <p>Complete home cleaning services including kitchens, bathrooms, bedrooms, and living areas. We make your home sparkle from top to bottom.</p>
+                <ul class="service-list">
+                    <li class="service">
+                        <span class="service-icon"><i class="fas fa-home" aria-hidden="true"></i></span>
+                        <div>
+                            <h3>Residential cleaning</h3>
+                            <p>Kitchens, bathrooms, bedrooms and living areas, cleaned top to bottom.</p>
+                        </div>
+                    </li>
+                    <li class="service">
+                        <span class="service-icon"><i class="fas fa-building" aria-hidden="true"></i></span>
+                        <div>
+                            <h3>Commercial cleaning</h3>
+                            <p>Offices and business spaces kept clean enough to impress clients and pleasant for your staff.</p>
+                        </div>
+                    </li>
+                    <li class="service">
+                        <span class="service-icon"><i class="fas fa-broom" aria-hidden="true"></i></span>
+                        <div>
+                            <h3>Deep cleaning</h3>
+                            <p>An intensive clean that reaches every corner. Ideal for move-ins, move-outs, or a fresh start.</p>
+                        </div>
+                    </li>
+                    <li class="service">
+                        <span class="service-icon"><i class="fas fa-couch" aria-hidden="true"></i></span>
+                        <div>
+                            <h3>Carpet and upholstery</h3>
+                            <p>Carpets and furniture cleaned with professional equipment and eco-friendly solutions.</p>
+                        </div>
+                    </li>
+                    <li class="service">
+                        <span class="service-icon"><i class="fas fa-window-maximize" aria-hidden="true"></i></span>
+                        <div>
+                            <h3>Window cleaning</h3>
+                            <p>Streak-free windows inside and out, including the hard-to-reach ones.</p>
+                        </div>
+                    </li>
+                    <li class="service">
+                        <span class="service-icon"><i class="fas fa-calendar-alt" aria-hidden="true"></i></span>
+                        <div>
+                            <h3>Regular maintenance</h3>
+                            <p>Weekly, every two weeks, or monthly. The same quality on every visit.</p>
+                        </div>
+                    </li>
+                </ul>
             </div>
-            <div class="service-card animate-on-scroll">
-                <div class="service-icon">
-                    <i class="fas fa-building"></i>
-                </div>
-                <h3>Commercial Cleaning</h3>
-                <p>Professional office and business cleaning services. Maintain a pristine work environment that impresses clients and boosts productivity.</p>
-            </div>
-            <div class="service-card animate-on-scroll">
-                <div class="service-icon">
-                    <i class="fas fa-broom"></i>
-                </div>
-                <h3>Deep Cleaning</h3>
-                <p>Intensive cleaning service that reaches every corner. Perfect for move-ins, move-outs, or when you need that extra level of cleanliness.</p>
-            </div>
-            <div class="service-card animate-on-scroll">
-                <div class="service-icon">
-                    <i class="fas fa-couch"></i>
-                </div>
-                <h3>Carpet & Upholstery</h3>
-                <p>Professional carpet and furniture cleaning using advanced equipment and eco-friendly solutions for a fresh, clean result.</p>
-            </div>
-            <div class="service-card animate-on-scroll">
-                <div class="service-icon">
-                    <i class="fas fa-window-maximize"></i>
-                </div>
-                <h3>Window Cleaning</h3>
-                <p>Crystal clear windows inside and out. We clean all types of windows, including hard-to-reach areas with professional equipment.</p>
-            </div>
-            <div class="service-card animate-on-scroll">
-                <div class="service-icon">
-                    <i class="fas fa-calendar-alt"></i>
-                </div>
-                <h3>Regular Maintenance</h3>
-                <p>Weekly, bi-weekly, or monthly cleaning schedules tailored to your needs. Consistent quality you can count on.</p>
-            </div>
-        </div>
-    </div>
-</section>
+        </section>
 
-<section class="why-choose" id="about">
-    <div class="container">
-        <h2 class="section-title animate-on-scroll">Why Choose Guzman Elite Services?</h2>
-        <div class="features-grid">
-            <div class="feature-item animate-on-scroll">
-                <div class="feature-icon">
-                    <i class="fas fa-medal"></i>
+        <section class="promise" id="about">
+            <div class="wrap">
+                <h2 class="promise-statement">If anything isn't right, we come back and clean it again, free.</h2>
+                <p>That's our satisfaction guarantee, and it comes with every booking.</p>
+                <ul class="promise-points">
+                    <li>
+                        <h3>Vetted, insured staff</h3>
+                        <p>Everyone on our team is background-checked, trained and insured, so you can hand over your keys with confidence.</p>
+                    </li>
+                    <li>
+                        <h3>Better products, better results</h3>
+                        <p>Professional equipment and eco-friendly products that are safe for kids and pets.</p>
+                    </li>
+                    <li>
+                        <h3>Clear pricing</h3>
+                        <p>You get a price before we start. No hidden fees and no surprises on the bill.</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="reviews" id="reviews">
+            <div class="wrap">
+                <h2 class="section-heading">What our clients say</h2>
+                <div class="review-grid">
+                    <figure class="review">
+                        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+                        <blockquote>"Absolutely amazing service! They transformed my home and made it spotless. The attention to detail is incredible and the staff is so professional."</blockquote>
+                        <cite>Maria Rodriguez</cite>
+                    </figure>
+                    <figure class="review">
+                        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+                        <blockquote>"Best cleaning service in town! They've been cleaning our office for 6 months and it's always perfect. Highly recommend for any business."</blockquote>
+                        <cite>David Chen</cite>
+                    </figure>
+                    <figure class="review">
+                        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+                        <blockquote>"Reliable, thorough, and trustworthy. They go above and beyond every time. My house has never looked better!"</blockquote>
+                        <cite>Jennifer Smith</cite>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact" id="contact">
+            <div class="wrap">
+                <div>
+                    <h2>Get your free quote</h2>
+                    <p>Tell us about your space and we'll give you a price. No obligation.</p>
+                    <a class="contact-phone" href="tel:+1234567890">(123) 456-7890</a>
+                </div>
+                <div class="contact-actions">
+                    <a class="btn btn-navy" href="tel:+1234567890"><i class="fas fa-phone" aria-hidden="true"></i> Call us</a>
+                    <a class="btn btn-navy" href="sms:+1234567890"><i class="fas fa-sms" aria-hidden="true"></i> Text us</a>
+                    <a class="btn btn-navy" href="mailto:info@guzmanelit.com"><i class="fas fa-envelope" aria-hidden="true"></i> Email us</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="wrap">
+            <div class="footer-grid">
+                <div>
+                    <a class="brand" href="#home"><i class="fas fa-crown" aria-hidden="true"></i> Guzman Elite Services</a>
+                    <p>Home and commercial cleaning, serving your area.</p>
                 </div>
                 <div>
-                    <h3>Premium Quality</h3>
-                    <p>We use only the best equipment and eco-friendly products to deliver exceptional results every time.</p>
-                </div>
-            </div>
-            <div class="feature-item animate-on-scroll">
-                <div class="feature-icon">
-                    <i class="fas fa-user-check"></i>
-                </div>
-                <div>
-                    <h3>Trusted Professionals</h3>
-                    <p>All our staff are thoroughly vetted, trained, and insured for your peace of mind and security.</p>
-                </div>
-            </div>
-            <div class="feature-item animate-on-scroll">
-                <div class="feature-icon">
-                    <i class="fas fa-dollar-sign"></i>
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><a href="tel:+1234567890"><i class="fas fa-phone" aria-hidden="true"></i> (123) 456-7890</a></li>
+                        <li><a href="mailto:info@guzmanelit.com"><i class="fas fa-envelope" aria-hidden="true"></i> info@guzmanelit.com</a></li>
+                        <li><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Serving your area</li>
+                    </ul>
                 </div>
                 <div>
-                    <h3>Competitive Pricing</h3>
-                    <p>Premium service at fair prices. No hidden fees, just transparent pricing with exceptional value.</p>
-                </div>
-            </div>
-            <div class="feature-item animate-on-scroll">
-                <div class="feature-icon">
-                    <i class="fas fa-handshake"></i>
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#services">Residential cleaning</a></li>
+                        <li><a href="#services">Commercial cleaning</a></li>
+                        <li><a href="#services">Deep cleaning</a></li>
+                        <li><a href="#services">Carpet cleaning</a></li>
+                    </ul>
                 </div>
                 <div>
-                    <h3>100% Satisfaction</h3>
-                    <p>Your satisfaction is guaranteed. If you're not happy, we'll make it right at no extra charge.</p>
+                    <h3>Follow us</h3>
+                    <ul>
+                        <li><a href="#"><i class="fab fa-facebook" aria-hidden="true"></i> Facebook</a></li>
+                        <li><a href="#"><i class="fab fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+                        <li><a href="#"><i class="fab fa-google" aria-hidden="true"></i> Google Reviews</a></li>
+                    </ul>
                 </div>
             </div>
+            <p class="footer-base">&copy; 2025 Guzman Elite Home Services. All rights reserved.</p>
         </div>
-    </div>
-</section>
+    </footer>
 
-<section class="testimonials" id="testimonials">
-    <div class="container">
-        <h2 class="section-title animate-on-scroll" style="color: var(--gold);">What Our Clients Say</h2>
-        <div class="testimonial-grid">
-            <div class="testimonial-card animate-on-scroll">
-                <div class="stars">★★★★★</div>
-                <p class="testimonial-text">"Absolutely amazing service! They transformed my home and made it spotless. The attention to detail is incredible and the staff is so professional."</p>
-                <p class="testimonial-author">- Maria Rodriguez</p>
-            </div>
-            <div class="testimonial-card animate-on-scroll">
-                <div class="stars">★★★★★</div>
-                <p class="testimonial-text">"Best cleaning service in town! They've been cleaning our office for 6 months and it's always perfect. Highly recommend for any business."</p>
-                <p class="testimonial-author">- David Chen</p>
-            </div>
-            <div class="testimonial-card animate-on-scroll">
-                <div class="stars">★★★★★</div>
-                <p class="testimonial-text">"Reliable, thorough, and trustworthy. They go above and beyond every time. My house has never looked better!"</p>
-                <p class="testimonial-author">- Jennifer Smith</p>
-            </div>
-        </div>
-    </div>
-</section>
+    <script src="https://cdn.jsdelivr.net/npm/motion@11.11.13/dist/motion.js"></script>
+    <script>
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const Motion = window.Motion;
 
-<section class="final-cta" id="contact">
-    <div class="container">
-        <h2>Ready for a Spotless Space?</h2>
-        <p>Get your free, no-obligation quote today and experience the Guzman Elite difference!</p>
-        <div class="contact-options">
-            <a href="tel:+1234567890" class="contact-btn">
-                <i class="fas fa-phone"></i>
-                Call (123) 456-7890
-            </a>
-            <a href="mailto:info@guzmanelit.com" class="contact-btn">
-                <i class="fas fa-envelope"></i>
-                Email Us
-            </a>
-            <a href="sms:+1234567890" class="contact-btn">
-                <i class="fas fa-sms"></i>
-                Text Quote
-            </a>
-        </div>
-    </div>
-</section>
+        // Mobile menu
+        const toggle = document.querySelector('.menu-toggle');
+        const menu = document.getElementById('mobile-menu');
 
-<footer>
-    <div class="container">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Contact Info</h3>
-                <a href="tel:+1234567890"><i class="fas fa-phone"></i> (123) 456-7890</a>
-                <a href="mailto:info@guzmanelit.com"><i class="fas fa-envelope"></i> info@guzmanelit.com</a>
-                <p><i class="fas fa-map-marker-alt"></i> Serving Your Area</p>
-            </div>
-            <div class="footer-section">
-                <h3>Services</h3>
-                <a href="#services">Residential Cleaning</a>
-                <a href="#services">Commercial Cleaning</a>
-                <a href="#services">Deep Cleaning</a>
-                <a href="#services">Carpet Cleaning</a>
-            </div>
-            <div class="footer-section">
-                <h3>Follow Us</h3>
-                <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
-                <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
-                <a href="#"><i class="fab fa-google"></i> Google Reviews</a>
-            </div>
-        </div>
-        <div style="border-top: 1px solid rgba(255,215,0,0.2); margin-top: 2rem; padding-top: 1rem;">
-            <p>&copy; 2025 Guzman Elite Home Services. All rights reserved.</p>
-        </div>
-    </div>
-</footer>
+        function setMenu(open) {
+            toggle.setAttribute('aria-expanded', String(open));
+            toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+            toggle.querySelector('i').className = open ? 'fas fa-times' : 'fas fa-bars';
 
-<script>
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
+            if (!Motion || reduceMotion) {
+                menu.classList.toggle('open', open);
+                return;
+            }
+            if (open) {
+                menu.classList.add('open');
+                Motion.animate(menu, { height: [0, menu.scrollHeight + 'px'], opacity: [0, 1] }, { duration: 0.25, easing: 'ease-out' })
+                    .then(() => { menu.style.height = ''; });
+            } else {
+                Motion.animate(menu, { height: [menu.offsetHeight + 'px', 0], opacity: [1, 0] }, { duration: 0.2, easing: 'ease-in' })
+                    .then(() => { menu.classList.remove('open'); menu.style.height = ''; menu.style.opacity = ''; });
+            }
+        }
+
+        toggle.addEventListener('click', () => setMenu(toggle.getAttribute('aria-expanded') !== 'true'));
+        menu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setMenu(false)));
+
+        // Page-load moment: a squeegee wipes the haze off the headline, then the job sheet ticks itself off
+        if (Motion && !reduceMotion) {
+            const { animate, stagger } = Motion;
+            const pane = document.querySelector('.pane');
+            const haze = pane.querySelector('.haze');
+            const blade = pane.querySelector('.blade');
+            const ticks = document.querySelectorAll('.checklist .tick');
+
+            haze.hidden = false;
+            blade.hidden = false;
+            const checks = document.querySelectorAll('.checklist .tick i');
+            ticks.forEach(t => { t.style.background = 'transparent'; t.style.borderColor = 'var(--rule)'; });
+            checks.forEach(c => { c.style.transform = 'scale(0)'; });
+
+            const travel = pane.offsetWidth + 32;
+            const wipe = { duration: 1.1, delay: 0.35, easing: [0.65, 0, 0.35, 1] };
+
+            animate(blade, { opacity: [0, 1] }, { duration: 0.2, delay: 0.25 });
+            animate(blade, { transform: ['translateX(0) rotate(4deg)', `translateX(${travel}px) rotate(-2deg)`] }, wipe);
+            animate(haze, { clipPath: ['inset(0 0 0 0)', 'inset(0 0 0 100%)'] }, wipe)
+                .then(() => {
+                    haze.remove();
+                    return animate(blade, { opacity: 0 }, { duration: 0.2 });
+                })
+                .then(() => {
+                    blade.remove();
+                    animate(ticks, { backgroundColor: '#e3b341', borderColor: '#e3b341' }, { delay: stagger(0.15), duration: 0.2 });
+                    animate(checks, { transform: ['scale(0)', 'scale(1)'] }, { delay: stagger(0.15), duration: 0.3, easing: [0.34, 1.56, 0.64, 1] });
                 });
-            }
-        });
-    });
-
-    // Animate elements on scroll
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animated');
-            }
-        });
-    }, observerOptions);
-
-    // Observe all elements with animate-on-scroll class
-    document.querySelectorAll('.animate-on-scroll').forEach(el => {
-        observer.observe(el);
-    });
-
-    // Add floating effect to service cards
-    document.querySelectorAll('.service-card').forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-15px) scale(1.02)';
-        });
-        
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0) scale(1)';
-        });
-    });
-
-    // Add click tracking for call-to-action buttons
-    document.querySelectorAll('.cta-button, .contact-btn').forEach(button => {
-        button.addEventListener('click', function() {
-            // Add a subtle animation when clicked
-            this.style.transform = 'scale(0.95)';
-            setTimeout(() => {
-                this.style.transform = '';
-            }, 150);
-        });
-    });
-</script>
-```
-
+        }
+    </script>
 </body>
 </html>
